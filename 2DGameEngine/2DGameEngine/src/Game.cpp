@@ -1,3 +1,5 @@
+//Kosi Chima and Nick tsakir
+
 #include "Game.h"
 #include <iostream>
 #include <SDL.h>
