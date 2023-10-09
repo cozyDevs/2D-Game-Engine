@@ -3,6 +3,7 @@
 #include "Game.h"
 #include <iostream>
 #include <SDL.h>
+#include <SDL_image.h>
 
 Game::Game() 
 {
@@ -62,7 +63,7 @@ void Game::ProcessInput()
 	}
 }
 
-void Setup() {
+void Game::Setup() {
 	
 }
 
@@ -78,7 +79,33 @@ void Game::Render()
 
 	//Render every other game Object here
 
-	SDL_RenderPresent(renderer);
+	//Draw a Rectangle
+	//SDL_SetRenderDrawColor(renderer, 21, 21, 21, 255);
+	//SDL_Rect player = {10, 10, 20, 20 }; 
+	//SDL_RenderFillRect(renderer, &player); // (where to draw , what to classify the rect as)
+	// the factors to initlaize the rectangle are {x, y, width and height}
+
+	/** USING PNG/JPG TEXTURES**/
+	/*IMPORTANT!!
+	* Because SDL cannot read png, pg or other image files, we go around that by
+	* creating  a surface object and populating that with the image of asset/png being made
+	* After that a texture is created and populated with said surface, serving as a pointer and allowing said surface to be freed from memory.
+	* 
+	
+	
+	*/
+	SDL_Surface* surface = IMG_Load("./assets/images/blue_crab_attack.png");
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+	SDL_FreeSurface(surface);
+
+	SDL_Rect dstRect = { 10, 10, 32, 32 }; // destination that the texture should be placed on
+
+	SDL_RenderCopy(renderer, texture, NULL, &dstRect); //null because we want the entire source image not just a piece
+	SDL_DestroyTexture(texture);
+
+
+	SDL_RenderPresent(renderer); 
+	// SDL uses two render buffers(back and front) back enables developer editing, front buffer displays the SDL screen, helpful to avoid render glitches, it is important to select chosen renderer.
 }
 
 void Game::Run()
