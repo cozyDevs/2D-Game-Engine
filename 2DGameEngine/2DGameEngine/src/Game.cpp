@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <glm/glm.hpp>
 
 Game::Game() 
 {
@@ -63,42 +64,40 @@ void Game::ProcessInput()
 	}
 }
 
+glm::vec2 playerPosition;
+glm::vec2 playerVelocity;
+
+
 void Game::Setup() {
+	playerPosition = glm::vec2(10.0, 20.0);
+	playerVelocity = glm::vec2(0.5, 0.0);
 	
 }
 
 void Game::Update()
 {
-	//Update the gaME oBJECTS
+	int timeToWait = MILLISECS_PER_FRAME - (SDL_GetTicks() - millisecsPreviousFrame);
+	if (timeToWait > 0 && timeToWait <= MILLISECS_PER_FRAME) {
+		SDL_Delay(timeToWait);
+	}
+	//Store current frame time
+   millisecsPreviousFrame = SDL_GetTicks();
+	
+	playerPosition.x += playerVelocity.x;
+	playerPosition.y += playerVelocity.y;
+	
 }
 
 void Game::Render()
 {
-	SDL_SetRenderDrawColor(renderer, 0, 151, 218, 255); //Chnage back to 255,0,0 if needed
-	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer, 0, 151, 218, 255); //Change back to 255,0,0 if needed
+	SDL_RenderClear(renderer); 
 
-	//Render every other game Object here
-
-	//Draw a Rectangle
-	//SDL_SetRenderDrawColor(renderer, 21, 21, 21, 255);
-	//SDL_Rect player = {10, 10, 20, 20 }; 
-	//SDL_RenderFillRect(renderer, &player); // (where to draw , what to classify the rect as)
-	// the factors to initlaize the rectangle are {x, y, width and height}
-
-	/** USING PNG/JPG TEXTURES**/
-	/*IMPORTANT!!
-	* Because SDL cannot read png, pg or other image files, we go around that by
-	* creating  a surface object and populating that with the image of asset/png being made
-	* After that a texture is created and populated with said surface, serving as a pointer and allowing said surface to be freed from memory.
-	* 
-	
-	
-	*/
 	SDL_Surface* surface = IMG_Load("./assets/images/blue_crab_attack.png");
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);
 
-	SDL_Rect dstRect = { 10, 10, 32, 32 }; // destination that the texture should be placed on
+	SDL_Rect dstRect = { static_cast<int>(playerPosition.x), static_cast<int>(playerPosition.y), 132, 132 }; // destination that the texture should be placed on
 
 	SDL_RenderCopy(renderer, texture, NULL, &dstRect); //null because we want the entire source image not just a piece
 	SDL_DestroyTexture(texture);

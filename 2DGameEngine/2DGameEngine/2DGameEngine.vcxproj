@@ -393,6 +393,7 @@
     <ClInclude Include="libs\lua\luaconf.h" />
     <ClInclude Include="libs\lua\lualib.h" />
     <ClInclude Include="libs\sol\sol.hpp" />
+    <ClInclude Include="SDL.h" />
     <ClInclude Include="SDL2\include\SDL.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\SDL2\include\begin_code.h" />
