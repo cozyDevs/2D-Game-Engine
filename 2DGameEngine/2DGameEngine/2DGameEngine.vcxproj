@@ -395,7 +395,10 @@
     <ClInclude Include="libs\sol\sol.hpp" />
     <ClInclude Include="SDL.h" />
     <ClInclude Include="SDL2\include\SDL.h" />
-    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Game\Game.h" />
+    <ClInclude Include="src\Logger\Logger.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="src\SDL2\include\begin_code.h" />
     <ClInclude Include="src\SDL2\include\close_code.h" />
     <ClInclude Include="src\SDL.h" />
@@ -486,6 +489,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\2DGameEngine.exe.recipe" />
+    <None Include="Debug\2DGameEngine.ilk" />
     <None Include="Debug\2DGameEngine.tlog\2DGameEngine.lastbuildstate" />
     <None Include="Debug\2DGameEngine.tlog\CL.command.1.tlog" />
     <None Include="Debug\2DGameEngine.tlog\Cl.items.tlog" />
@@ -669,7 +673,8 @@
     <ClCompile Include="libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="libs\imgui\imgui_sdl.cpp" />
     <ClCompile Include="libs\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Game\Game.cpp" />
+    <ClCompile Include="src\Logger\Logger.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -681,6 +686,7 @@
     <Text Include="Debug\2DGameEngine.vcxproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Object Include="Debug\Game.obj" />
     <Object Include="Debug\glm.obj" />
     <Object Include="Debug\imgui.obj" />
     <Object Include="Debug\imgui_demo.obj" />

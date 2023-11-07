@@ -1,1 +1,14 @@
-﻿  2DGameEngine.vcxproj -> C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\Debug\2DGameEngine.exe
+﻿  Game.cpp
+C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Game\Game.cpp(95,39): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Game\Game.cpp(96,39): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Logger.cpp
+  Generating Code...
+  2DGameEngine.vcxproj -> C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\Debug\2DGameEngine.exe

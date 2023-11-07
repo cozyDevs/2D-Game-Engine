@@ -777,7 +777,7 @@
     <ClInclude Include="libs\sol\sol.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game.h">
+    <ClInclude Include="src\Game\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDL2\include\SDL.h">
@@ -1045,6 +1045,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logger\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1489,6 +1492,7 @@
     <None Include="src\SDL2\include\SDL_config.h.cmake" />
     <None Include="src\SDL2\include\SDL_config.h.in" />
     <None Include="src\SDL2\include\SDL_config_macosx.h.orig" />
+    <None Include="Debug\2DGameEngine.ilk" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\glm\detail\glm.cpp">
@@ -1512,7 +1516,10 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.cpp">
+    <ClCompile Include="src\Game\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Logger\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1532,5 +1539,6 @@
     <Object Include="Debug\imgui_sdl.obj" />
     <Object Include="Debug\imgui_widgets.obj" />
     <Object Include="Debug\Main.obj" />
+    <Object Include="Debug\Game.obj" />
   </ItemGroup>
 </Project>
