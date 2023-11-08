@@ -4,12 +4,19 @@
 #include "../Logger/Logger.h"
 #include <iostream>
 #include <SDL.h>
-#include <SDL_image.h>
+#include <SDL_Image.h>
 #include <glm/glm.hpp>
+#include "../ECS/ECS.h"
+#include "../Components/TransformComponent.h"
+#include "../Components/RigidBodyComponent.h"
+#include "../Components/SpriteComponent.h"
+#include "../Systems/MovementSystem.h"
+#include "../Systems/RenderSystem.h"
 
 Game::Game() 
 {
 	isRunning = false;
+	registry = std::make_unique<Registry>();
 	Logger::Log("Game constructor called!");
 	
 }
@@ -76,7 +83,23 @@ glm::vec2 playerVelocity;
 void Game::Setup() {
 	playerPosition = glm::vec2(10.0, 20.0);
 	playerVelocity = glm::vec2(109.0, 0.0);
-	
+
+	// Adding systems to the game
+	registry->AddSystem<MovementSystem>();
+	registry->AddSystem<RenderSystem>();
+
+	// Creating entities 
+	Entity tank = registry->CreateEntity();
+	Entity square = registry->CreateEntity();
+
+	// Adding components to entities 
+	tank.AddComponent<TransformComponent>(glm::vec2(10.0, 20.0), glm::vec2(1.0, 1.0), 0.0);
+	tank.AddComponent<RigidBodyComponent>(glm::vec2(50, 0));
+	tank.AddComponent<SpriteComponent>(10, 10);
+
+	square.AddComponent<TransformComponent>(glm::vec2(10.0, 20.0), glm::vec2(1.0, 1.0), 0.0);
+	square.AddComponent<RigidBodyComponent>(glm::vec2(0, 50));
+	square.AddComponent<SpriteComponent>(50, 50);
 }
 
 void Game::Update()
@@ -94,6 +117,14 @@ void Game::Update()
 	
 	playerPosition.x += playerVelocity.x * deltaTime;
 	playerPosition.y += playerVelocity.y * deltaTime;
+
+
+	// Receive the movement system update function and pass in delta time
+	registry->GetSystem<MovementSystem>().Update(deltaTime);
+
+	// Update registry function that manages entities waiting to be created or destroyed
+	// Called at the end of the frame
+	registry->Update();
 	
 }
 
@@ -111,6 +142,8 @@ void Game::Render()
 	SDL_RenderCopy(renderer, texture, NULL, &dstRect); //null because we want the entire source image not just a piece
 	SDL_DestroyTexture(texture);
 
+	// Update the systems that need to render
+	registry->GetSystem<RenderSystem>().Update(renderer);
 
 	SDL_RenderPresent(renderer); 
 	// SDL uses two render buffers(back and front) back enables developer editing, front buffer displays the SDL screen, helpful to avoid render glitches, it is important to select chosen renderer.

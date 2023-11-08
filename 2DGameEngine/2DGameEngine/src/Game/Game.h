@@ -1,4 +1,5 @@
 #pragma once
+#include "../ECS/ECS.h"
 #include <SDL.h>
 
 const int FPS = 500;
@@ -12,6 +13,8 @@ class Game {
 		int millisecsPreviousFrame = 0;
 		SDL_Window* window; //object of the sdl window
 		SDL_Renderer* renderer;  //object of the sdl renderer
+
+		std::unique_ptr<Registry> registry;
 
 	public:
 		Game();
