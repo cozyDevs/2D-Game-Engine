@@ -1,6 +1,7 @@
 #pragma once
 #include "../ECS/ECS.h"
 #include <SDL.h>
+#include "../AssetManager/AssetStore.h"
 
 const int FPS = 500;
 const int MILLISECS_PER_FRAME = 1000 / FPS;
@@ -15,6 +16,7 @@ class Game {
 		SDL_Renderer* renderer;  //object of the sdl renderer
 
 		std::unique_ptr<Registry> registry;
+		std::unique_ptr<AssetStore> assetStore;
 
 	public:
 		Game();
@@ -22,6 +24,7 @@ class Game {
 		void Initialize();
 		void Run();
 		void Setup();
+		void LoadLevel(int level);
 		void ProcessInput();
 		void Update();
 		void Render();
