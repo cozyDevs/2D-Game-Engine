@@ -1,4 +1,5 @@
 #include "ECS.h"
+#include "../Logger/Logger.h"
 
 int IComponent::nextId = 0;
 
@@ -37,9 +38,18 @@ Entity Registry::CreateEntity()
 	int entityId;
 	entityId = numEntities++;
 
+	// Creating the entity and pointing to its parent registry
 	Entity entity(entityId);
-
+	entity.registry = this;
 	entitiesToBeAdded.insert(entity);
+
+	// Assert that entityComponentVector is the correct size for entity being created, resize if necessary
+	if (entityId >= entityComponentSignatures.size())
+	{
+		entityComponentSignatures.resize(entityId + 1);
+	}
+
+	Logger::Log("Entity created with id: " + std::to_string(entityId));
 	return entity;
 }
 
@@ -67,5 +77,12 @@ void Registry::AddEntityToSystem(Entity entity)
 
 void Registry::Update()
 {
+	// Adds the entities that are waiting to be created
+	for (auto entity : entitiesToBeAdded)
+	{
+		AddEntityToSystem(entity);
+	}
 
+	// Clear the entity set since it might change next frame
+	entitiesToBeAdded.clear();
 }
