@@ -4,6 +4,7 @@ C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngin
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\libs\imgui\imgui_draw.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\imgui_draw.obj
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\libs\imgui\imgui_sdl.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\imgui_sdl.obj
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\libs\imgui\imgui_widgets.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\imgui_widgets.obj
+C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\ECS\ECS.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\ECS.obj
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Game\Game.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\Game.obj
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Logger\Logger.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\Logger.obj
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Main.cpp;C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\Debug\Main.obj

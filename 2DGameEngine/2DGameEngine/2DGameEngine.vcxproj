@@ -395,6 +395,8 @@
     <ClInclude Include="libs\sol\sol.hpp" />
     <ClInclude Include="SDL.h" />
     <ClInclude Include="SDL2\include\SDL.h" />
+    <ClInclude Include="src\Components\TransformComponent.h" />
+    <ClInclude Include="src\ECS\ECS.h" />
     <ClInclude Include="src\Game\Game.h" />
     <ClInclude Include="src\Logger\Logger.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -673,6 +675,7 @@
     <ClCompile Include="libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="libs\imgui\imgui_sdl.cpp" />
     <ClCompile Include="libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\ECS\ECS.cpp" />
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\Logger\Logger.cpp" />
     <ClCompile Include="src\Main.cpp" />

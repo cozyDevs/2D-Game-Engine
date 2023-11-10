@@ -1,4 +1,5 @@
-﻿  Game.cpp
+﻿  ECS.cpp
+  Game.cpp
 C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngine\src\Game\Game.cpp(95,39): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -10,5 +11,15 @@ C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\2DGameEngin
               T=float
           ]
   Logger.cpp
+  Main.cpp
   Generating Code...
+  LINK : C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\Debug\2DGameEngine.exe not found or not built by the last incremental link; performing full link
+Debug\Game.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\glm.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\imgui.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\imgui_demo.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\imgui_draw.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\imgui_sdl.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\imgui_widgets.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\Main.obj : warning LNK4042: object specified more than once; extras ignored
   2DGameEngine.vcxproj -> C:\Users\nanom\OneDrive\Documents\GitHub\2D-Game-Engine\2DGameEngine\Debug\2DGameEngine.exe
